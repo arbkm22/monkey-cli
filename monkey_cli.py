@@ -82,9 +82,9 @@ class TypingTest:
         curses.curs_set(1)  # Show cursor
         curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  # Correct
         curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)    # Incorrect
-        curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Pending/Normal text
-        curses.init_pair(4, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Stats - using white instead of bright yellow
-        curses.init_pair(5, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Title - using white instead of bright cyan
+        curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Normal text
+        curses.init_pair(4, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Stats (kept separate for easy customization)
+        curses.init_pair(5, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Title (kept separate for easy customization)
         self.stdscr.clear()
     
     def _generate_words(self) -> List[str]:

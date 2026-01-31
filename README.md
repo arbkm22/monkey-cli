@@ -96,8 +96,6 @@ The application features:
 - Clean, distraction-free interface
 - Comprehensive results screen
 - Historical tracking with visual graphs
-- Clean, distraction-free interface
-- Comprehensive results screen
 
 ## License
 
