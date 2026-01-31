@@ -4,19 +4,20 @@ Demo script to show Monkey-CLI interface without actual typing.
 This creates a simulated screenshot of what the application looks like.
 """
 
+# ANSI color codes
+GREEN = '\033[92m'
+RED = '\033[91m'
+YELLOW = '\033[93m'
+CYAN = '\033[96m'
+WHITE = '\033[97m'
+GRAY = '\033[90m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+RESET = '\033[0m'
+
+
 def print_demo():
     """Print a demo of what the Monkey-CLI looks like."""
-    
-    # ANSI color codes
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    YELLOW = '\033[93m'
-    CYAN = '\033[96m'
-    WHITE = '\033[97m'
-    GRAY = '\033[90m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    RESET = '\033[0m'
     
     print("\n" + "=" * 80)
     print(f"{CYAN}{BOLD}🐵 MONKEY-CLI - Terminal Typing Test{RESET}")
@@ -53,13 +54,6 @@ def print_demo():
     print()
 
 if __name__ == "__main__":
-    # ANSI color codes
-    GREEN = '\033[92m'
-    CYAN = '\033[96m'
-    BOLD = '\033[1m'
-    GRAY = '\033[90m'
-    RESET = '\033[0m'
-    
     print("\n" + CYAN + BOLD + "Monkey-CLI Interface Preview" + RESET)
     print(GRAY + "This shows what the application looks like during and after a typing test:" + RESET)
     

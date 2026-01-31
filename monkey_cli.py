@@ -23,9 +23,9 @@ WORD_LIST = [
     "even", "new", "want", "because", "any", "these", "give", "day", "most", "us",
     "is", "was", "are", "been", "has", "had", "were", "said", "did", "having",
     "may", "should", "find", "very", "through", "between", "such", "being", "under", "why",
-    "system", "each", "those", "both", "world", "still", "own", "see", "men", "work",
-    "long", "down", "way", "many", "must", "before", "right", "too", "same", "tell",
-    "boy", "follow", "came", "show", "every", "good", "give", "our", "under", "name",
+    "system", "each", "those", "both", "world", "still", "own", "where", "men", "much",
+    "long", "down", "side", "many", "must", "before", "right", "too", "same", "tell",
+    "boy", "follow", "came", "show", "every", "part", "once", "place", "made", "name",
     "develop", "create", "program", "computer", "software", "hardware", "network", "internet", "website", "application",
     "function", "variable", "method", "class", "object", "array", "string", "number", "boolean", "loop",
     "condition", "statement", "operator", "expression", "parameter", "argument", "return", "value", "type", "data",
@@ -243,8 +243,23 @@ class TypingTest:
         # Backspace
         if char in [curses.KEY_BACKSPACE, 127, 8]:
             if len(self.user_input) > 0:
+                # Get the character being deleted
+                deleted_char = self.user_input[-1]
+                deleted_pos = len(self.user_input) - 1
+                
+                # Adjust counters based on whether it was correct or incorrect
+                if deleted_pos < len(self.target_text):
+                    if deleted_char == self.target_text[deleted_pos]:
+                        if self.correct_chars > 0:
+                            self.correct_chars -= 1
+                    else:
+                        if self.incorrect_chars > 0:
+                            self.incorrect_chars -= 1
+                
+                # Remove the character
                 self.user_input = self.user_input[:-1]
                 self.current_position = len(self.user_input)
+                
                 if self.total_chars_typed > 0:
                     self.total_chars_typed -= 1
             return True
