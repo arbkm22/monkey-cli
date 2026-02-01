@@ -4,7 +4,7 @@ Unit tests for monkey_cli.py core functionality.
 """
 
 import sys
-import time
+from unittest.mock import patch
 
 # Test word list generation
 def test_word_list():
@@ -63,12 +63,9 @@ def test_wpm_freezes_after_completion():
     test.correct_chars = 50
     test.test_completed = True
 
-    original_time = time.time
-    try:
-        time.time = lambda: 2060.0
+    # 50 correct chars / 5 chars per word = 10 words over 1 minute.
+    with patch("time.time", return_value=2060.0):
         assert test._calculate_wpm() == 10.0, "Expected WPM to use end_time when set"
-    finally:
-        time.time = original_time
     print("✓ WPM freeze test passed")
 
 if __name__ == "__main__":
